@@ -28,27 +28,42 @@ a {
     text-decoration: none;
 }
 
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--primary-bg-color);
+    border-radius: 4px;
+
+    font-size: 15px;
+    font-weight: 650;
+    font-family: montserrat;    
+
+    appearance: none;
+}
+
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.wrappers {
+#wrappers {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    margin-top: 0.8rem;
 }
 
-.gameWrapper {
+#gameWrapper {
     width: 1500px;
     height: 620px;
-    margin-top: 1rem;
     margin-right: 1rem;
     display: flex;
 
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
 
     border-radius: 14px;
     border: 3px solid var(--primary-color);
@@ -59,10 +74,118 @@ a {
     font-family: montserrat;
 }
 
-.leaderboardWrapper {
+#gameWrapperStartupPages {
+    display: flex;
+}
+
+#gameplayWrapper {
+    display: none;
+}
+
+#gameplayWrapper h1{
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    align-self: center;
+    font-size: 200px;
+}
+
+#titlePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100%;  
+    overflow: hidden;
+}
+
+#titlePage img {
+    margin-top: -3rem;
+    width: 500px;
+}
+
+#titlePageButtons {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+}
+
+#titlePageButtons button {
+    width: 16rem;
+    height: 3.25rem;
+    font-size: 15.5px;
+    border-radius: 10px;
+    margin-bottom: 0.25rem;
+}
+
+#instructionsPage {
+    display: none;
+    margin-top: 1.25rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    height: 100%;  
+    overflow: hidden;
+}
+
+#instructionsPage p{
+   padding-left: 100px;
+   padding-right: 100px;
+}
+
+#instructionsPageButtons {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+#instructionsPageButtons button {
+    width: 6.5rem;
+    height: 2.5rem;
+    font-size: 15.5px;
+    border-radius: 10px;
+    margin-bottom: 0.25rem;
+}
+
+#settingsPage {
+    display: none;
+    margin-top: 1.25rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    height: 100%;  
+    overflow: hidden;
+}
+
+#settingsPage p{
+   padding-left: 70px;
+   padding-right: 70px;
+}
+
+#settingsPageButtons {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+#settingsPageButtons button {
+    width: 6.5rem;
+    height: 2.5rem;
+    font-size: 15.5px;
+    border-radius: 10px;
+    margin-bottom: 0.25rem;
+}
+
+#leaderboardWrapper {
     width: 400px;
     height: 620px;
-    margin-top: 1rem;
     display: flex;
 
     justify-content: center;
@@ -75,6 +198,10 @@ a {
     font-size: 10px;
     font-weight: 650;
     font-family: montserrat;
+}
+
+.leaderboardGrid {
+    margin-top: 2rem;
 }
 
 .leaderboardItem {
