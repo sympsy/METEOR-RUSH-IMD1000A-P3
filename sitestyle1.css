@@ -81,6 +81,8 @@ a {
     width: 285px;
     height: 35px;
     margin: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     display: flex;
     padding-left: 20px;
     padding-right: 20px;
