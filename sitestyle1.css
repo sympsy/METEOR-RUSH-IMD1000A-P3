@@ -42,7 +42,7 @@ a {
 
 .gameWrapper {
     width: 1500px;
-    height: 720px;
+    height: 620px;
     margin-top: 1rem;
     margin-right: 1rem;
     display: flex;
@@ -61,7 +61,7 @@ a {
 
 .leaderboardWrapper {
     width: 400px;
-    height: 720px;
+    height: 620px;
     margin-top: 1rem;
     display: flex;
 
