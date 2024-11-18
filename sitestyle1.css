@@ -41,8 +41,8 @@ a {
 }
 
 .gameWrapper {
-    width: 90rem;
-    height: 45rem;
+    width: 1500px;
+    height: 720px;
     margin-top: 1rem;
     margin-right: 1rem;
     display: flex;
@@ -60,8 +60,8 @@ a {
 }
 
 .leaderboardWrapper {
-    width: 25rem;
-    height: 45rem;
+    width: 400px;
+    height: 720px;
     margin-top: 1rem;
     display: flex;
 
@@ -72,33 +72,43 @@ a {
     border: 3px solid var(--primary-color);
     background-color: var(--secondary-bg-color2);
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 650;
     font-family: montserrat;
 }
 
 .leaderboardItem {
-    width: 18rem;
-    height: 2.25rem;
-    margin-top: 1rem;
+    width: 285px;
+    height: 35px;
+    margin: 0.5rem;
     display: flex;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
 
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
 
-    border-radius: 14px;
+    border-radius: 12px;
     border: 3px solid var(--primary-color);
-    background-color: var(--primary-color);
-    color: var(--secondary-bg-color2);
+    background-color: var(--secondary-bg-color2);
+    color: var(--primary-color);
 
     font-size: 15px;
     font-weight: 650;
     font-family: montserrat;
 }
 
+#topLeaderboardItem {
+    background-color: var(--primary-color);
+    color: var(--secondary-bg-color2);
+}
+
+.playerName {
+    text-align: left;
+    flex: 1;
+}
+
 .playerScore {
-    padding-left: 12rem;
     text-align: right;
+    flex: 1;
 }
