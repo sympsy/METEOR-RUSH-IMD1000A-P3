@@ -72,6 +72,7 @@ button {
     font-size: 15px;
     font-weight: 650;
     font-family: montserrat;
+    overflow: hidden;
 }
 
 #gameWrapperStartupPages {
@@ -87,6 +88,13 @@ button {
     margin-top: 1.5rem;
     align-self: center;
     font-size: 200px;
+}
+
+#playerChar {
+    display: none;
+    width: 60px;
+    height: auto;
+    object-fit: contain;
 }
 
 #titlePage {

@@ -1,4 +1,4 @@
-const countdownLength = 5
+const countdownLength = 1
 
 document.addEventListener("DOMContentLoaded", function() {
     console.log("startup");
@@ -70,4 +70,12 @@ function runGame(){
         countdown.innerHTML = "GO!"
     }, delay);
     delay += 1000
+    setTimeout(() => {
+        countdown.innerHTML = ""
+        
+        let playerChar = document.getElementById("playerChar")
+        playerChar.style.display = "block"
+    }, delay);
+
+
 }
