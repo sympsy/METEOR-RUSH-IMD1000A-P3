@@ -1,7 +1,11 @@
-const countdownLength = 1
+const countdownLength = 0
 
-document.addEventListener("DOMContentLoaded", function() {
+let gameIsActive = false
+let playerChar = null
+
+document.addEventListener("DOMContentLoaded", function () {
     console.log("startup");
+    window.addEventListener('keydown', moveSelection)
 
     let gameWrapper = document.getElementById("gameWrapper")
     let gameplayWrapper = document.getElementById("gameplayWrapper")
@@ -19,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("startup complete");
 
     for (let i = 0; i < okayButtons.length; i++) {
-        okayButtons[i].onclick = function() {
+        okayButtons[i].onclick = function () {
             titlePage.style.display = "flex"
             settingsPage.style.display = "none"
             instructionsPage.style.display = "none"
@@ -32,32 +36,35 @@ document.addEventListener("DOMContentLoaded", function() {
         instructionsPage.style.display = "none"
     }
 
-    startButton.onclick = function() {
+    startButton.onclick = function () {
         hideAllPages()
         gameplayWrapper.style.display = "flex"
-        leaderboardWrapper.style.display = "none"
         runGame()
     }
 
-    instructionsButton.onclick = function() {
+    instructionsButton.onclick = function () {
         hideAllPages()
         instructionsPage.style.display = "flex"
     }
 
-    settingsButton.onclick = function() {
+    settingsButton.onclick = function () {
         hideAllPages()
         settingsPage.style.display = "flex"
     }
 });
 
-function runGame(){
+function runGame() {
+    if (gameIsActive) {
+        return
+    }
+    gameIsActive = true
     let countdown = document.getElementById("countdown")
     countdown.innerHTML = countdownLength
     console.log("starting loop")
-    
+
     let delay = 0;
-    
-    for (let i = countdownLength; i>0; i=i-1) {
+
+    for (let i = countdownLength; i > 0; i = i - 1) {
         console.log("oopng")
         console.log(i)
         setTimeout(() => {
@@ -72,10 +79,19 @@ function runGame(){
     delay += 1000
     setTimeout(() => {
         countdown.innerHTML = ""
-        
-        let playerChar = document.getElementById("playerChar")
+
+        playerChar = document.getElementById("playerChar")
         playerChar.style.display = "block"
     }, delay);
 
+}
 
+function moveSelection(input) {
+    if (gameIsActive) {
+        console.log("cliiiiiicked")
+        switch (input.keyCode) {
+            case 37:
+                console.log("left arrow")
+        }
+    }
 }

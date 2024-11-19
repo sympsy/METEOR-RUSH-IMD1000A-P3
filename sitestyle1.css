@@ -39,7 +39,7 @@ button {
 
     font-size: 15px;
     font-weight: 650;
-    font-family: montserrat;    
+    font-family: montserrat;
 
     appearance: none;
 }
@@ -47,19 +47,19 @@ button {
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 #wrappers {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 0.8rem;
 }
 
 #gameWrapper {
-    width: 1500px;
-    height: 620px;
+    width: 90rem;
+    height: 50rem;
     margin-right: 1rem;
     display: flex;
 
@@ -72,7 +72,7 @@ button {
     font-size: 15px;
     font-weight: 650;
     font-family: montserrat;
-    overflow: hidden;
+    overflow: visible;
 }
 
 #gameWrapperStartupPages {
@@ -81,9 +81,17 @@ button {
 
 #gameplayWrapper {
     display: none;
+    justify-content: center;
+    /* Horizontal centering */
+    align-items: center;
+    /* Vertical centering */
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
 }
 
-#gameplayWrapper h1{
+#gameplayWrapper h1 {
     color: var(--secondary-color);
     margin-top: 1.5rem;
     align-self: center;
@@ -92,7 +100,7 @@ button {
 
 #playerChar {
     display: none;
-    width: 60px;
+    width: 40px;
     height: auto;
     object-fit: contain;
 }
@@ -102,8 +110,8 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    height: 100%;  
+
+    height: 100%;
     overflow: hidden;
 }
 
@@ -134,14 +142,14 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    height: 100%;  
+
+    height: 100%;
     overflow: hidden;
 }
 
-#instructionsPage p{
-   padding-left: 100px;
-   padding-right: 100px;
+#instructionsPage p {
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 #instructionsPageButtons {
@@ -166,14 +174,14 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    height: 100%;  
+
+    height: 100%;
     overflow: hidden;
 }
 
-#settingsPage p{
-   padding-left: 70px;
-   padding-right: 70px;
+#settingsPage p {
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 #settingsPageButtons {
@@ -193,7 +201,7 @@ button {
 
 #leaderboardWrapper {
     width: 400px;
-    height: 620px;
+    height: 50rem;
     display: flex;
 
     justify-content: center;
