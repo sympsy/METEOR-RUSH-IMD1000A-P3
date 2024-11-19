@@ -58,8 +58,8 @@ button {
 }
 
 #gameWrapper {
-    width: 90rem;
-    height: 50rem;
+    width: 1000px;
+    height: 700px;
     margin-right: 1rem;
     display: flex;
 
@@ -201,7 +201,7 @@ button {
 
 #leaderboardWrapper {
     width: 400px;
-    height: 50rem;
+    height: 700px;
     display: flex;
 
     justify-content: center;
