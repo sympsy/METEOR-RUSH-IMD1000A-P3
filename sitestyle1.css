@@ -76,24 +76,24 @@ button {
 }
 
 #gameWrapperStartupPages {
-    display: flex;
+    display: block;
+    width: 1000px;
+    height: 700px;
 }
 
 #gameplayWrapper {
     display: none;
     justify-content: center;
-    /* Horizontal centering */
     align-items: center;
-    /* Vertical centering */
-    width: 100vw;
-    /* Full viewport width */
-    height: 100vh;
-    /* Full viewport height */
+    width: 1000px;
+    height: 700px;
+
+    position: relative;
 }
 
 #gameplayWrapper h1 {
     color: var(--secondary-color);
-    margin-top: 1.5rem;
+    margin-top: 0;
     align-self: center;
     font-size: 200px;
 }
@@ -103,7 +103,26 @@ button {
     width: 40px;
     height: auto;
     object-fit: contain;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* From what I understand, this basically moves the anchor point from the top right corner to the middle */
 }
+
+#meteor {
+    display: none;
+    width: 55px;
+    height: auto;
+    object-fit: contain;
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 #titlePage {
     display: flex;
