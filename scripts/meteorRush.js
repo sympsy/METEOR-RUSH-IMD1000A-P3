@@ -1,4 +1,4 @@
-const countdownLength = 0
+const countdownLength = 3
 const waveDuration = 15000 // 15 seconds
 const waveIntervalMin = 200 // Meteor spawn rate
 const waveIntervalMax = 1000
