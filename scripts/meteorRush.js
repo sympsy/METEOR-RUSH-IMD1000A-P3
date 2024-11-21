@@ -1,9 +1,15 @@
 const countdownLength = 0
-const waveDuration = 15000 // 30 seconds
-const waveIntervalMin = 500 // Meteor spawn rate
-const waveIntervalMax = 2000
-let waveStepSpeed = 1
-const waveDifficultyMultiplier = 0.5
+const waveDuration = 15000 // 15 seconds
+const waveIntervalMin = 200 // Meteor spawn rate
+const waveIntervalMax = 1000
+const waveDefaultStepSpeed = 1
+let activeWaveStepSpeed = waveDefaultStepSpeed
+const waveDifficultyMultiplier = 1.25
+
+const scoreIncreaseInterval = 10
+const scoreIncreaseStep = 1
+let score = 0
+let highscore = 0
 
 const shipStaticImage = "./images/gameplay/ship_static.png"
 const shipDynamicImage = "./images/gameplay/ship_dynamic.png"
@@ -68,6 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function runGame() {
     if (gameIsActive) return;
 
+    let continueButton = document.getElementById("endGameContinue")
+    continueButton.style.display = "none"
+
     let countdown = document.getElementById("countdown")
     countdown.innerHTML = countdownLength
     console.log("starting loop")
@@ -94,6 +103,8 @@ function runGame() {
         playerChar.style.display = "block"
 
         gameIsActive = true
+        keepScore()
+        startWaveDifficulty()
         startWaves()
         //console.log(parseInt(window.getComputedStyle(playerChar).left))
         // .. getComputedStyle will return the computed style of left, which includes the CSS set percentage (50%), but converted into pixels based on the element's parent.
@@ -101,27 +112,79 @@ function runGame() {
     }, delay);
 }
 
+function gameOver() {
+    if (score > highscore) {
+        highscore = score
+        highscoreText = document.getElementById("playerScore")
+        highscoreText.innerHTML = highscore.toLocaleString()
+    }
+    score = 0
+    activeWaveStepSpeed = waveDefaultStepSpeed
+
+    let countdown = document.getElementById("countdown")
+    countdown.innerHTML = "game over"
+
+    let continueButton = document.getElementById("endGameContinue")
+    continueButton.style.display = "block"
+    playerChar.style.display = "none"
+}
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-function isTouching(object1, object2) {
-    let object1Bounds = object1.getBoundingClientRect()
-    let object2Bounds = object2.getBoundingClientRect()
+let test = true
 
+function isTouching(object1, object2) {
     let object1Left = parseInt(window.getComputedStyle(object1).left)
     let object1Top = parseInt(window.getComputedStyle(object1).top)
+    let object1Width = parseInt(window.getComputedStyle(object1).width)
+    let object1Height = parseInt(window.getComputedStyle(object1).height)
+
     let object2Left = parseInt(window.getComputedStyle(object2).left)
     let object2Top = parseInt(window.getComputedStyle(object2).top)
+    let object2Width = parseInt(window.getComputedStyle(object2).width)
+    let object2Height = parseInt(window.getComputedStyle(object2).height)
+
+    let object1Right = object1Left + object1Width;
+    let object1Bottom = object1Top + object1Height;
+    let object2Right = object2Left + object2Width;
+    let object2Bottom = object2Top + object2Height;
 
     if (
-        ((object1Left < object2Left) && (object1Left > object2Left - object1Bounds.width)) && ((object1Top < object2Top) && (object1Top > object2Top - object1Bounds.height))
+        object1Left < object2Right &&
+        object1Right > object2Left &&
+        object1Top < object2Bottom &&
+        object1Bottom > object2Top
     ) {
-        //console.log("touching you boy")
-        return true
+        return true // The objects are touching
     } else {
-        return false
+        return false // The objects are not touching
     }
+}
+
+function keepScore() {
+    let delay = scoreIncreaseInterval
+    function upScore() {
+        if (gameIsActive) {
+            score += scoreIncreaseStep
+            let scoreElement = document.getElementById("score")
+            scoreElement.innerHTML = `Score: ${score.toLocaleString()}`
+            setTimeout(upScore, delay)
+        }
+    }
+    upScore()
+}
+
+function startWaveDifficulty() {
+    let delay = waveDuration
+    function increaseDiff() {
+        if (gameIsActive) {
+            activeWaveStepSpeed = activeWaveStepSpeed * waveDifficultyMultiplier
+            setTimeout(increaseDiff, delay)
+        }
+    }
+    increaseDiff()
 }
 
 function startWaves() {
@@ -144,12 +207,13 @@ function startWaves() {
             newMeteor.style.top = `${0 - (newMeteor.getBoundingClientRect().height / 2)}px`
 
             let waveInterval = getRndInteger(waveIntervalMin, waveIntervalMax)
+            let localMoveFactor = activeWaveStepSpeed
 
             function moveMeteor() {
                 if (gameIsActive) {
                     let currentTop = parseInt(window.getComputedStyle(newMeteor).top || 0)
                     if (parseInt(currentTop || 0) < gameplayWrapper.getBoundingClientRect().height + (newMeteor.getBoundingClientRect().height / 2)) {
-                        newMeteor.style.top = `${currentTop + waveStepSpeed}px`
+                        newMeteor.style.top = `${currentTop + localMoveFactor}px`
                         if (isTouching(newMeteor, playerChar)) {
                             gameIsActive = false
                             gameOver()
@@ -169,11 +233,6 @@ function startWaves() {
 
         spawnMeteor()
     }
-}
-
-function gameOver() {
-    let countdown = document.getElementById("countdown")
-    countdown.innerHTML = ":C"
 }
 
 function arrowKeyPressed(side) {
@@ -212,39 +271,39 @@ function moveSelection(input) {
     if (gameIsActive && playerChar != null) {
         switch (input.keyCode) {
             case 37:
-                console.log("left arrow")
+                //console.log("left arrow")
                 //playerChar.src = shipDynamicImage
                 arrowKeyPressed("left")
                 break
             case 39:
-                console.log("right arrow")
+                //console.log("right arrow")
                 //playerChar.src = shipDynamicImage
                 arrowKeyPressed("right")
                 break
             case 38:
-                console.log("up arrow")
+                //console.log("up arrow")
                 arrowKeyPressed("up")
                 break
             case 40:
-                console.log("down arrow")
+                //console.log("down arrow")
                 arrowKeyPressed("down")
                 break
             case 65:
-                console.log("left arrow")
+                //console.log("left arrow")
                 //playerChar.src = shipDynamicImage
                 arrowKeyPressed("left")
                 break
             case 68:
-                console.log("right arrow")
+                //console.log("right arrow")
                 //playerChar.src = shipDynamicImage
                 arrowKeyPressed("right")
                 break
             case 87:
-                console.log("up arrow")
+                //console.log("up arrow")
                 arrowKeyPressed("up")
                 break
             case 83:
-                console.log("down arrow")
+                //console.log("down arrow")
                 arrowKeyPressed("down")
                 break
         }

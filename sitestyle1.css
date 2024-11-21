@@ -47,7 +47,8 @@ button {
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
+    width: 1000px;
 }
 
 #wrappers {
@@ -93,9 +94,21 @@ button {
 
 #gameplayWrapper h1 {
     color: var(--secondary-color);
-    margin-top: 0;
+    margin-top: 0rem;
     align-self: center;
-    font-size: 200px;
+    font-size: 125px;
+}
+
+#gameplayWrapper button {
+    display: none;
+    position: absolute;
+    width: 6.5rem;
+    height: 2.5rem;
+    font-size: 15.5px;
+    border-radius: 10px;
+    margin-top: 12rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #playerChar {
@@ -120,7 +133,6 @@ button {
     position: absolute;
     transform: translate(-50%, -50%);
 }
-
 
 #titlePage {
     display: flex;
@@ -217,8 +229,9 @@ button {
 }
 
 #leaderboardWrapper {
+    margin-top: -575px;
     width: 400px;
-    height: 700px;
+    height: 125px;
     display: flex;
 
     justify-content: center;
