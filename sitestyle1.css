@@ -87,7 +87,7 @@ button {
     align-items: center;
     width: 1000px;
     height: 700px;
-
+    overflow: hidden;
     position: relative;
 }
 
@@ -118,8 +118,6 @@ button {
     object-fit: contain;
 
     position: absolute;
-    top: 60%;
-    left: 50%;
     transform: translate(-50%, -50%);
 }
 
