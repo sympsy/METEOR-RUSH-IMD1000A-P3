@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             titlePage.style.display = "flex"
             settingsPage.style.display = "none"
             instructionsPage.style.display = "none"
+            gameplayWrapper.style.display = "none"
         }
     }
 
@@ -101,6 +102,12 @@ function runGame() {
 
         playerChar = document.getElementById("playerChar")
         playerChar.style.display = "block"
+        playerChar.style.left = "50%"
+        playerChar.style.top = "50%"
+
+        let gameplayWrapper = document.getElementById("gameplayWrapper")
+        gameplayWrapper.style.backgroundColor = "#bebebe"
+        gameplayWrapper.style.display = "flex"
 
         gameIsActive = true
         keepScore()
@@ -120,6 +127,9 @@ function gameOver() {
     }
     score = 0
     activeWaveStepSpeed = waveDefaultStepSpeed
+
+    let gameplayWrapper = document.getElementById("gameplayWrapper")
+    gameplayWrapper.style.backgroundColor = "#e1e1e1"
 
     let countdown = document.getElementById("countdown")
     countdown.innerHTML = "game over"
@@ -195,7 +205,7 @@ function startWaves() {
 
             let gameplayWrapper = document.getElementById("gameplayWrapper")
             let newMeteor = document.createElement("img");
-            newMeteor.src = "./images/gameplay/meteor.png"
+            newMeteor.src = `./images/gameplay/meteor_${getRndInteger(1, 3)}.png`
             newMeteor.id = "meteor";
 
             newMeteor.style.display = "block";

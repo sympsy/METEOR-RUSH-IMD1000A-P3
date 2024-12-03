@@ -9,6 +9,7 @@
     --secondary-bg-color2: #d8d8d8;
     --primary-color: #212121;
     --secondary-color: #2e2e2e;
+    --game-primary-color: #bebebe;
 }
 
 body {
@@ -90,6 +91,7 @@ button {
     height: 700px;
     overflow: hidden;
     position: relative;
+    border-radius: 14px;
 }
 
 #gameplayWrapper h1 {
