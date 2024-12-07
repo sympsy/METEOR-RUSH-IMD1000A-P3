@@ -198,7 +198,7 @@ button {
     margin-bottom: 0.25rem;
 }
 
-#settingsPage {
+#gameplayPage {
     display: none;
     margin-top: 1.25rem;
     flex-direction: column;
@@ -210,19 +210,67 @@ button {
     overflow: hidden;
 }
 
-#settingsPage p {
+#gameplayTutMedia {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#gameplayTutMedia img {
+    display: block;
+}
+
+#gameplayTutMedia video {
+    display: block;
+    padding: 10px;
+}
+
+#gameplayPage p {
     padding-left: 70px;
     padding-right: 70px;
 }
 
-#settingsPageButtons {
+#gameplayPageButtons {
     height: 200px;
     display: flex;
     flex-direction: column;
     margin-top: 1.2rem;
 }
 
-#settingsPageButtons button {
+#gameplayPageButtons button {
+    width: 6.5rem;
+    height: 2.5rem;
+    font-size: 15.5px;
+    border-radius: 10px;
+    margin-bottom: 0.25rem;
+}
+
+#creditsPage {
+    display: none;
+    margin-top: 1.25rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    height: 100%;
+    overflow: hidden;
+}
+
+#creditsPage p {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#creditsPageButtons {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+#creditsPageButtons button {
     width: 6.5rem;
     height: 2.5rem;
     font-size: 15.5px;

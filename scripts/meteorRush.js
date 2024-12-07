@@ -32,10 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let titlePage = document.getElementById("titlePage")
     let startButton = document.getElementById("startButton")
     let instructionsButton = document.getElementById("instructionsButton")
-    let settingsButton = document.getElementById("settingsButton")
+    let gameplayButton = document.getElementById("gameplayButton")
+    let creditsButton = document.getElementById("creditsButton")
 
     let instructionsPage = document.getElementById("instructionsPage")
-    let settingsPage = document.getElementById("settingsPage")
+    let gameplayPage = document.getElementById("gameplayPage")
+    let creditsPage = document.getElementById("creditsPage")
     let okayButtons = document.getElementsByClassName("okayButton1")
 
     console.log("startup complete");
@@ -43,16 +45,18 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < okayButtons.length; i++) {
         okayButtons[i].onclick = function () {
             titlePage.style.display = "flex"
-            settingsPage.style.display = "none"
+            gameplayPage.style.display = "none"
             instructionsPage.style.display = "none"
+            creditsPage.style.display = "none"
             gameplayWrapper.style.display = "none"
         }
     }
 
     function hideAllPages() {
         titlePage.style.display = "none"
-        settingsPage.style.display = "none"
+        gameplayPage.style.display = "none"
         instructionsPage.style.display = "none"
+        creditsPage.style.display = "none"
     }
 
     startButton.onclick = function () {
@@ -66,9 +70,14 @@ document.addEventListener("DOMContentLoaded", function () {
         instructionsPage.style.display = "flex"
     }
 
-    settingsButton.onclick = function () {
+    gameplayButton.onclick = function () {
         hideAllPages()
-        settingsPage.style.display = "flex"
+        gameplayPage.style.display = "flex"
+    }
+
+    creditsButton.onclick = function () {
+        hideAllPages()
+        creditsPage.style.display = "flex"
     }
 });
 
@@ -106,7 +115,7 @@ function runGame() {
         playerChar.style.top = "50%"
 
         let gameplayWrapper = document.getElementById("gameplayWrapper")
-        gameplayWrapper.style.backgroundColor = "#bebebe"
+        gameplayWrapper.style.backgroundColor = "#5457a1"
         gameplayWrapper.style.display = "flex"
 
         gameIsActive = true
